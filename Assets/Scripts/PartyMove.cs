@@ -12,6 +12,13 @@ public class PartyMove : MonoBehaviour
     void Update()
     {
         Move();
+
+        // Si llegamos a la escala minima game over
+        if (transform.localScale.x <= escalaMinima) //Es la misma para x e y
+        {
+            GameManager.Instance.GameOver();
+        }
+
     }
 
     private void Move()

@@ -95,4 +95,10 @@ public class GameManager : MonoBehaviour
     {
         posicionesOcupadas.Remove(posicion);
     }
+
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
+        Time.timeScale = 0f;
+    }
 }
