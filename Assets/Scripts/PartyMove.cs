@@ -7,6 +7,7 @@ public class PartyMove : MonoBehaviour
     public float escalaPorBorracho;
     public float escalaMinima;
     public float escalaMaxima;
+    private float limiteMapa = 30f;
 
     void Update()
     {
@@ -20,10 +21,15 @@ public class PartyMove : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         // Crear vector de movimiento
-        Vector2 movimiento = new Vector2(horizontal, vertical).normalized;
+        Vector3 movimiento = new Vector3(horizontal, vertical, 0f).normalized * velocidad * Time.deltaTime;
 
-        // Aplicar movimiento al GameObject
-        transform.Translate(movimiento * velocidad * Time.deltaTime);
+        // Aplicar movimiento
+        transform.position += movimiento;
+
+        // Limitar dentro del mapa
+        float clampedX = Mathf.Clamp(transform.position.x, -limiteMapa, limiteMapa);
+        float clampedY = Mathf.Clamp(transform.position.y, -limiteMapa, limiteMapa);
+        transform.position = new Vector3(clampedX, clampedY, transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
