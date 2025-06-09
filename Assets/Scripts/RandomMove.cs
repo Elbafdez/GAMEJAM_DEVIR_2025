@@ -8,12 +8,15 @@ public class RandomMove : MonoBehaviour
     private Vector2 direccion;
     private float temporizador;
     private float limiteMapa = 20f; // Límite de la cuadrícula
+    private Animator animator;
 
     void Start()
     {
         float timeToDestroy = Random.Range(10f, 20f);
         ElegirNuevaDireccion();
         Invoke(nameof(DestruirPersona), timeToDestroy);
+
+        animator = GetComponent<Animator>();
     }
 
     void DestruirPersona()
@@ -41,6 +44,12 @@ public class RandomMove : MonoBehaviour
         else
         {
             transform.Translate(direccion * velocidad * Time.deltaTime);
+        }
+        
+        // Actualizar la animación
+        if (animator != null)
+        {
+            animator.SetBool("Walk", direccion != Vector2.zero);
         }
     }
 

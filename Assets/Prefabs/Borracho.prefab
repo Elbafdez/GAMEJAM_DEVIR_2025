@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5519465792997462975}
   - component: {fileID: -3023253746084745353}
   - component: {fileID: -5378732726975364147}
+  - component: {fileID: 1182694628627391839}
   m_Layer: 0
   m_Name: Borracho
   m_TagString: Borracho
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -1548902359, guid: 897852279ba8457428ac3a36be7e0a7a, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,3 +142,25 @@ MonoBehaviour:
   velocidadPersecucion: 1.5
   distanciaPerseguir: 6
   cambioDireccionCada: 2
+--- !u!95 &1182694628627391839
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230004043569794751}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89d4dff3c477afa47931bcc5dd0b90d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

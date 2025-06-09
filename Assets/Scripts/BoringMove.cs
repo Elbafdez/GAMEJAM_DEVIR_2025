@@ -10,6 +10,7 @@ public class BoringMove : MonoBehaviour
     private Vector2 direccion;
     private float temporizador;
     private Transform jugador;
+    private Animator animator;
 
     void Start()
     {
@@ -17,6 +18,8 @@ public class BoringMove : MonoBehaviour
         jugador = GameObject.FindGameObjectWithTag("Player").transform;
         ElegirNuevaDireccion();
         Invoke(nameof(Destruir), timeToDestroy);
+
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -37,6 +40,12 @@ public class BoringMove : MonoBehaviour
             }
 
             transform.Translate(direccion * velocidadNormal * Time.deltaTime);
+        }
+
+        // Actualizar la animación
+        if (animator != null)
+        {
+            animator.SetBool("Walk", direccion != Vector2.zero);
         }
     }
 
