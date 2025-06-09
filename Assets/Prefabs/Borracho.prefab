@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5378732726975364147}
   m_Layer: 0
   m_Name: Borracho
-  m_TagString: Untagged
+  m_TagString: Borracho
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -138,6 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadNormal: 0.5
-  velocidadPersecucion: 2
+  velocidadPersecucion: 1.5
   distanciaPerseguir: 6
   cambioDireccionCada: 2
