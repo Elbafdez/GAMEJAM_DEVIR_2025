@@ -11,6 +11,14 @@ public class RandomMove : MonoBehaviour
     void Start()
     {
         ElegirNuevaDireccion();
+        Invoke(nameof(DestruirPersona), 10f); // Destruir tras 10 segundos
+    }
+        
+
+    void DestruirPersona()
+    {
+        GameManager.Instance.RemoverPersona((Vector2)transform.position);
+        Destroy(gameObject);
     }
 
     void Update()
