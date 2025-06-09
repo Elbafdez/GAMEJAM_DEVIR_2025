@@ -4,16 +4,25 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance; // Para acceso global
-    public GameObject[] personasPrefabs;
+    public static GameManager Instance;
+
+    [Header("Prefabs")]
+    public GameObject[] personasNormalesPrefabs;
+    public GameObject[] borrachosPrefabs;
+
+    [Header("Jugador y mapa")]
     public Transform jugador;
     public float limiteMapa = 20f;
-    public float distanciaMinima = 3f;     // Distancia mínima con jugador
-    public float distanciaEntrePersonas = 1f; // Separación entre NPCs
+    public float distanciaMinima = 5f;
+    public float distanciaEntrePersonas = 1f;
+
+    [Header("Spawning")]
     public float tiempoMin = 1f;
     public float tiempoMax = 3f;
-    public int spawnMin = 4;
-    public int spawnMax = 8;
+    public int spawnMin = 5;
+    public int spawnMax = 10;
+    [Range(0f, 1f)]
+    public float probabilidadBorracho = 0.3f;
 
     private List<Vector2> posicionesOcupadas = new List<Vector2>();
 
@@ -57,8 +66,18 @@ public class GameManager : MonoBehaviour
 
                 if (intentos < intentosMax)
                 {
-                    GameObject prefab = personasPrefabs[Random.Range(0, personasPrefabs.Length)];
-                    GameObject persona = Instantiate(prefab, posicion, Quaternion.identity);
+                    GameObject prefabElegido;
+
+                    if (Random.value < probabilidadBorracho && borrachosPrefabs.Length > 0)
+                    {
+                        prefabElegido = borrachosPrefabs[Random.Range(0, borrachosPrefabs.Length)];
+                    }
+                    else
+                    {
+                        prefabElegido = personasNormalesPrefabs[Random.Range(0, personasNormalesPrefabs.Length)];
+                    }
+
+                    Instantiate(prefabElegido, posicion, Quaternion.identity);
                     posicionesOcupadas.Add(posicion);
                 }
             }

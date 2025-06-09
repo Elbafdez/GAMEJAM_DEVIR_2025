@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PartyMove.cs" />
+    <Compile Include="Assets\Scripts\BoringMove.cs" />
     <Compile Include="Assets\Scripts\RandomMove.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
