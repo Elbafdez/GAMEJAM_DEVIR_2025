@@ -13,9 +13,10 @@ public class BoringMove : MonoBehaviour
 
     void Start()
     {
+        float timeToDestroy = Random.Range(10f, 20f);
         jugador = GameObject.FindGameObjectWithTag("Player").transform;
         ElegirNuevaDireccion();
-        Invoke(nameof(Destruir), 20f); // Destruir tras 10 segundos
+        Invoke(nameof(Destruir), timeToDestroy);
     }
 
     void Update()

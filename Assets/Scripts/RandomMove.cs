@@ -10,8 +10,9 @@ public class RandomMove : MonoBehaviour
 
     void Start()
     {
+        float timeToDestroy = Random.Range(10f, 20f);
         ElegirNuevaDireccion();
-        Invoke(nameof(DestruirPersona), 20f); // Destruir tras 10 segundos
+        Invoke(nameof(DestruirPersona), timeToDestroy); // Destruir tras 10 segundos
     }
         
 

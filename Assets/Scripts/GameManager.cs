@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             float espera = Random.Range(tiempoMin, tiempoMax);
-            yield return new WaitForSeconds(espera);
 
             foreach (var tipo in tiposNPC)
             {
@@ -79,6 +78,7 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
+            yield return new WaitForSeconds(espera);
         }
     }
 

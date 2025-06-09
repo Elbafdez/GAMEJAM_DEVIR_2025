@@ -138,6 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadNormal: 0.5
-  velocidadPersecucion: 1.5
+  velocidadPersecucion: 2
   distanciaPerseguir: 6
   cambioDireccionCada: 2
