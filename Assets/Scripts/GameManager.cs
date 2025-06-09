@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
                     do
                     {
-                        Vector2 offset = Random.insideUnitCircle * 20f;
+                        Vector2 offset = Random.insideUnitCircle * 15f;
                         Vector2 posiblePos = (Vector2)jugador.position + offset;
 
                         posiblePos.x = Mathf.Clamp(posiblePos.x, -limiteMapa, limiteMapa);
