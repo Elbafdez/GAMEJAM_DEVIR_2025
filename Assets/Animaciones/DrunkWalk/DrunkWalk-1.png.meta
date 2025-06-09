@@ -103,9 +103,9 @@ TextureImporter:
       name: DrunkWalk-1_0
       rect:
         serializedVersion: 2
-        x: 67
+        x: 64
         y: 25
-        width: 71
+        width: 74
         height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d70375d9ba945b4d921a1513b866e03
-      internalID: 472180472
+      spriteID: a85cece8f0ee1194abd9027beca14460
+      internalID: 1286008121
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1d4ddc0bb3fd9ce45b2e03d4666f6dde
+    spriteID: 63a5ff51180b0864a930aae1b690138f
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DrunkWalk-1_0: 472180472
+      DrunkWalk-1_0: 1286008121
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

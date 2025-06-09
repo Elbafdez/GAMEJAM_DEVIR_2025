@@ -29,7 +29,6 @@ public class BoringMove : MonoBehaviour
             // Persecución
             Vector2 direccionAlJugador = (jugador.position - transform.position).normalized;
             transform.Translate(direccionAlJugador * velocidadPersecucion * Time.deltaTime);
-            animator.SetBool("DrunkWalk", true);
 
             if (animator != null)
             {

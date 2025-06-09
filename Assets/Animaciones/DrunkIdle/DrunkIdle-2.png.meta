@@ -103,9 +103,9 @@ TextureImporter:
       name: DrunkIdle-2_0
       rect:
         serializedVersion: 2
-        x: 69
+        x: 64
         y: 19
-        width: 70
+        width: 75
         height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14d731f0b4434e844a5723a911dd4dc7
-      internalID: -959382413
+      spriteID: 81f7a4b17a9b5904a9b2c2a118981696
+      internalID: -879002508
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1c9396bf72c8d4745a53240c7757d577
+    spriteID: 441cd9536f9d7b948b597a88997434f5
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DrunkIdle-2_0: -959382413
+      DrunkIdle-2_0: -879002508
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
