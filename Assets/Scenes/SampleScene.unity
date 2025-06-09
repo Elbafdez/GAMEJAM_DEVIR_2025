@@ -550,19 +550,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1bb271db6023d4ca106661e1624fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  personasNormalesPrefabs:
-  - {fileID: 881478081848909512, guid: 041c3d811195ea3409a3ce78cb80f319, type: 3}
-  borrachosPrefabs:
-  - {fileID: 7230004043569794751, guid: b0821a6ebd561864f9459cae324e3ce4, type: 3}
+  tiposNPC:
+  - nombre: PersonaNormal
+    prefabs:
+    - {fileID: 881478081848909512, guid: 041c3d811195ea3409a3ce78cb80f319, type: 3}
+    minPorTanda: 4
+    maxPorTanda: 8
+    probabilidad: 1
+  - nombre: Borracho
+    prefabs:
+    - {fileID: 7230004043569794751, guid: b0821a6ebd561864f9459cae324e3ce4, type: 3}
+    minPorTanda: 1
+    maxPorTanda: 3
+    probabilidad: 0.5
   jugador: {fileID: 248426248}
   limiteMapa: 20
   distanciaMinima: 5
   distanciaEntrePersonas: 1
   tiempoMin: 1
   tiempoMax: 3
-  spawnMin: 4
-  spawnMax: 8
-  probabilidadBorracho: 0.3
 --- !u!4 &1749787033
 Transform:
   m_ObjectHideFlags: 0

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3735265132843403585}
   - component: {fileID: 5519465792997462975}
-  - component: {fileID: -5378732726975364147}
   - component: {fileID: -3023253746084745353}
+  - component: {fileID: -5378732726975364147}
   m_Layer: 0
   m_Name: Borracho
   m_TagString: Untagged
@@ -89,18 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-5378732726975364147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7230004043569794751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ad655e8340d364fb59236855407612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &-3023253746084745353
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -137,3 +125,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &-5378732726975364147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230004043569794751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ad655e8340d364fb59236855407612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadNormal: 0.5
+  velocidadPersecucion: 1.5
+  distanciaPerseguir: 6
+  cambioDireccionCada: 2
