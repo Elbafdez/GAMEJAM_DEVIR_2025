@@ -3,18 +3,18 @@ using UnityEngine;
 public class RandomMove : MonoBehaviour
 {
     private float velocidad = 0.5f;
-    private float cambioDireccionCada = 2f; // cada cuántos segundos cambia dirección
+    private float cambioDireccionCada = 2f;
 
     private Vector2 direccion;
     private float temporizador;
+    private float limiteMapa = 20f; // Límite de la cuadrícula
 
     void Start()
     {
         float timeToDestroy = Random.Range(10f, 20f);
         ElegirNuevaDireccion();
-        Invoke(nameof(DestruirPersona), timeToDestroy); // Destruir tras 10 segundos
+        Invoke(nameof(DestruirPersona), timeToDestroy);
     }
-        
 
     void DestruirPersona()
     {
@@ -31,16 +31,26 @@ public class RandomMove : MonoBehaviour
             ElegirNuevaDireccion();
         }
 
-        transform.Translate(direccion * velocidad * Time.deltaTime);
+        Vector2 nuevaPos = (Vector2)transform.position + direccion * velocidad * Time.deltaTime;
+
+        if (Mathf.Abs(nuevaPos.x) > limiteMapa || Mathf.Abs(nuevaPos.y) > limiteMapa)
+        {
+            // Si se va fuera de los límites, elige nueva dirección
+            ElegirNuevaDireccion();
+        }
+        else
+        {
+            transform.Translate(direccion * velocidad * Time.deltaTime);
+        }
     }
 
     void ElegirNuevaDireccion()
     {
-        float chanceDeQuedarseQuieto = 0.2f; // 20% de probabilidad
-    
+        float chanceDeQuedarseQuieto = 0.2f;
+
         if (Random.value < chanceDeQuedarseQuieto)
         {
-            direccion = Vector2.zero; // Se queda quieto
+            direccion = Vector2.zero;
         }
         else
         {
@@ -49,10 +59,10 @@ public class RandomMove : MonoBehaviour
                 new Vector2(1, 1).normalized, new Vector2(-1, 1).normalized,
                 new Vector2(1, -1).normalized, new Vector2(-1, -1).normalized
             };
-    
+
             direccion = direcciones[Random.Range(0, direcciones.Length)];
         }
-    
+
         temporizador = Random.Range(0.5f, cambioDireccionCada);
     }
 }

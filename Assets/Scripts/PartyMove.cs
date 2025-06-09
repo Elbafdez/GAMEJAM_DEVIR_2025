@@ -10,7 +10,7 @@ public class PartyMove : MonoBehaviour
     }
 
     private void Move()
-    { 
+    {
         // Leer input (WASD o flechas)
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
