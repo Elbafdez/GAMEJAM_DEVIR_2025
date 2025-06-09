@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PartyMove.cs" />
     <Compile Include="Assets\Scripts\RandomMove.cs" />
+    <Compile Include="Assets\Scripts\CameraFollow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
