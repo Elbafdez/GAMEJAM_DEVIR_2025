@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovimientoAleatorio : MonoBehaviour
+public class RandomMove : MonoBehaviour
 {
     private float velocidad = 0.5f;
     private float cambioDireccionCada = 2f; // cada cuántos segundos cambia dirección
