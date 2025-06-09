@@ -11,6 +11,7 @@ public class BoringMove : MonoBehaviour
     private float temporizador;
     private Transform jugador;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class BoringMove : MonoBehaviour
         Invoke(nameof(Destruir), timeToDestroy);
 
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -34,6 +36,12 @@ public class BoringMove : MonoBehaviour
             {
                 animator.SetBool("DrunkWalk", true);
             }
+
+            // Flip del sprite
+            if (spriteRenderer != null && direccionAlJugador.x != 0)
+            {
+                spriteRenderer.flipX = direccionAlJugador.x < 0;
+            }
         }
         else
         {
@@ -46,10 +54,16 @@ public class BoringMove : MonoBehaviour
             }
 
             transform.Translate(direccion * velocidadNormal * Time.deltaTime);
-            
+
             if (animator != null)
             {
                 animator.SetBool("DrunkWalk", direccion != Vector2.zero);
+            }
+            
+            // Flip del sprite
+            if (spriteRenderer != null && direccion.x != 0)
+            {
+                spriteRenderer.flipX = direccion.x < 0;
             }
         }
     }

@@ -7,8 +7,9 @@ public class RandomMove : MonoBehaviour
 
     private Vector2 direccion;
     private float temporizador;
-    private float limiteMapa = 20f; // Límite de la cuadrícula
+    private float limiteMapa = 30f; // Límite de la cuadrícula
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class RandomMove : MonoBehaviour
         Invoke(nameof(DestruirPersona), timeToDestroy);
 
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void DestruirPersona()
@@ -45,11 +47,17 @@ public class RandomMove : MonoBehaviour
         {
             transform.Translate(direccion * velocidad * Time.deltaTime);
         }
-        
+
         // Actualizar la animación
         if (animator != null)
         {
             animator.SetBool("Walk", direccion != Vector2.zero);
+        }
+
+        // Orientación del sprite
+        if (spriteRenderer != null && direccion.x != 0)
+        {
+            spriteRenderer.flipX = direccion.x < 0;
         }
     }
 

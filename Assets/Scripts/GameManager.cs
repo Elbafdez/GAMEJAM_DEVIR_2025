@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Jugador y mapa")]
     public Transform jugador;
-    public float limiteMapa = 20f;
+    public float limiteMapa = 30f;
     public float distanciaMinima = 5f;
     public float distanciaEntrePersonas = 1f;
 
