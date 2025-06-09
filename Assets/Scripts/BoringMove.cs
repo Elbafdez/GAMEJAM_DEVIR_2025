@@ -29,23 +29,29 @@ public class BoringMove : MonoBehaviour
             // Persecución
             Vector2 direccionAlJugador = (jugador.position - transform.position).normalized;
             transform.Translate(direccionAlJugador * velocidadPersecucion * Time.deltaTime);
+            animator.SetBool("DrunkWalk", true);
+
+            if (animator != null)
+            {
+                animator.SetBool("DrunkWalk", true);
+            }
         }
         else
         {
             // Movimiento aleatorio
             temporizador -= Time.deltaTime;
+
             if (temporizador <= 0f)
             {
                 ElegirNuevaDireccion();
             }
 
             transform.Translate(direccion * velocidadNormal * Time.deltaTime);
-        }
-
-        // Actualizar la animación
-        if (animator != null)
-        {
-            animator.SetBool("Walk", direccion != Vector2.zero);
+            
+            if (animator != null)
+            {
+                animator.SetBool("DrunkWalk", direccion != Vector2.zero);
+            }
         }
     }
 
