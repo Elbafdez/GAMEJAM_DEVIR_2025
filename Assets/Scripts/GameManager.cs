@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverText;
     public TextMeshProUGUI textoPersonas;
     public TextMeshProUGUI textoTiempo;
+    public AudioSource audioSource;
+    public AudioClip musicaFiestaClip;
 
     [Header("Spawning General")]
     public float tiempoMin = 1f;
@@ -47,6 +49,13 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnearGrupos());
         StartCoroutine(AumentarProbabilidadBorrachos());
         gameOverText.SetActive(false);
+
+        if (audioSource != null && musicaFiestaClip != null)   // Asegurarse de que la música esté configurada
+        {
+            audioSource.clip = musicaFiestaClip;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
     }
 
     void Update()
