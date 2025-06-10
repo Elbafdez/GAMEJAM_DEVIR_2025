@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class PartyMove : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PartyMove : MonoBehaviour
     public float tamañoParaColorCamara = 2f;
 
     private bool cambioColorActivo = false;
+    public TextMeshProUGUI contadorPersonas;
+
 
     void Awake()
     {
@@ -27,6 +30,8 @@ public class PartyMove : MonoBehaviour
     void Update()
     {
         Move();
+        
+        contadorPersonas.text = personas.ToString();    // Mostrar el número de personas
 
         // Si llegamos a la escala minima game over
         if (transform.localScale.x <= escalaMinima) //Es la misma para x e y
