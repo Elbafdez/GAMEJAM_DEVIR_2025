@@ -15,7 +15,7 @@ public class PartyMove : MonoBehaviour
     public Camera mainCamera;
     public Color[] coloresFondo;
     public float intervaloCambioColor;
-    private float tamañoParaColorCamara = 2f;
+    public float tamañoParaColorCamara = 2f;
 
     private bool cambioColorActivo = false;
 
@@ -34,11 +34,19 @@ public class PartyMove : MonoBehaviour
             GameManager.Instance.GameOver();
         }
 
-        // Iniciar cambio de fondo si escala >= 2.5 y aún no está activo
+        // Iniciar cambio de fondo si escala >= 2 y aún no está activo
         if (!cambioColorActivo && transform.localScale.x >= tamañoParaColorCamara)
         {
             cambioColorActivo = true;
             StartCoroutine(CambiarColorFondo());
+        }
+        
+        // Detener cambio de fondo si escala < 2 y está activo
+        else if (cambioColorActivo && transform.localScale.x < tamañoParaColorCamara)
+        {
+            cambioColorActivo = false;
+            StopCoroutine(CambiarColorFondo());
+            mainCamera.backgroundColor = new Color(0.737f, 0.737f, 0.737f); // #BCBCBC
         }
 
     }
@@ -64,7 +72,7 @@ public class PartyMove : MonoBehaviour
     IEnumerator CambiarColorFondo()
     {
         int index = 0;
-        while (true)
+        while (cambioColorActivo)
         {
             if (coloresFondo.Length == 0) yield break;
     
