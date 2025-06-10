@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
     [Header("NPC Types")]
     public List<TipoNPC> tiposNPC;
 
+    [Header("Ajuste dinámico de probabilidad")]
+    private float tiempoParaAumentarProbabilidad = 10f; // cada 10 segundos
+    private float incrementoProbabilidad = 0.08f; // subir un 5% cada vez
+    private float probabilidadMaxima = 0.9f; // máximo 80%
+
     [Header("Jugador y mapa")]
     public Transform jugador;
     public float limiteMapa = 30f;
@@ -39,6 +44,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnearGrupos());
+        StartCoroutine(AumentarProbabilidadBorrachos());
         gameOverText.SetActive(false);
     }
 
@@ -96,6 +102,23 @@ public class GameManager : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(espera);
+        }
+    }
+
+    IEnumerator AumentarProbabilidadBorrachos()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(tiempoParaAumentarProbabilidad);
+
+            foreach (var tipo in tiposNPC)
+            {
+                if (tipo.nombre.ToLower().Contains("borracho")) // o usa == "Borracho"
+                {
+                    tipo.probabilidad = Mathf.Min(tipo.probabilidad + incrementoProbabilidad, probabilidadMaxima);
+                    Debug.Log("Probabilidad de borrachos aumentada a: " + tipo.probabilidad);
+                }
+            }
         }
     }
 

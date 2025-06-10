@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 3
-  escalaPorPersona: 0.05
+  escalaPorPersona: 0.03
   escalaPorBorracho: 0.1
   escalaMinima: 0.2
   escalaMaxima: 4
