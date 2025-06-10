@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class PartyMove : MonoBehaviour
 {
+    public static PartyMove Instance;
     public float velocidad = 3f;
     public float escalaPorPersona;
     public float escalaPorBorracho;
     public float escalaMinima;
     public float escalaMaxima;
     private float limiteMapa = 30f;
+    public int personas = 0;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Update()
     {
@@ -47,6 +54,7 @@ public class PartyMove : MonoBehaviour
             CambiarEscala(escalaPorPersona);
             GameManager.Instance.RemoverPersona((Vector2)other.transform.position);
             Destroy(other.gameObject);
+            personas++;
         }
         else if (other.CompareTag("Borracho"))
         {

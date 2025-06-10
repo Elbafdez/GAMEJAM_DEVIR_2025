@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 [System.Serializable]
 public class TipoNPC
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
     public float distanciaMinima = 5f;
     public float distanciaEntrePersonas = 1f;
     public GameObject gameOverText;
+    public TextMeshProUGUI textoPersonas;
+    public TextMeshProUGUI textoTiempo;
 
     [Header("Spawning General")]
     public float tiempoMin = 1f;
@@ -115,5 +118,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         gameOverText.SetActive(true);
         Time.timeScale = 0f;
+        textoPersonas.text = "Participantes: " + PartyMove.Instance.personas;    // Mostrar el número de personas
+        float tiempoTranscurrido = Time.timeSinceLevelLoad / 60f; // Convertir a minutos
+        textoTiempo.text = "Tiempo de faena: " + string.Format("{0:00}:{1:00}", (int)tiempoTranscurrido, (int)((tiempoTranscurrido - (int)tiempoTranscurrido) * 60));
     }
 }

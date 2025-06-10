@@ -444,6 +444,7 @@ MonoBehaviour:
   escalaPorBorracho: 0.1
   escalaMinima: 0.2
   escalaMaxima: 4
+  personas: 0
 --- !u!58 &248426251
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -916,6 +917,8 @@ MonoBehaviour:
   distanciaMinima: 5
   distanciaEntrePersonas: 1
   gameOverText: {fileID: 1411083886}
+  textoPersonas: {fileID: 245046468}
+  textoTiempo: {fileID: 2021264274}
   tiempoMin: 1
   tiempoMax: 3
 --- !u!4 &1749787033
