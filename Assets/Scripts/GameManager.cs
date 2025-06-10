@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public float limiteMapa = 30f;
     public float distanciaMinima = 5f;
     public float distanciaEntrePersonas = 1f;
+    public GameObject gameOverText;
 
     [Header("Spawning General")]
     public float tiempoMin = 1f;
@@ -32,7 +33,12 @@ public class GameManager : MonoBehaviour
 
     void Awake() => Instance = this;
 
-    void Start() => StartCoroutine(SpawnearGrupos());
+    void Start()
+    {
+        StartCoroutine(SpawnearGrupos());
+        gameOverText.SetActive(false);
+    }
+    
 
     IEnumerator SpawnearGrupos()
     {
@@ -99,6 +105,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
+        gameOverText.SetActive(true);
         Time.timeScale = 0f;
     }
 }
