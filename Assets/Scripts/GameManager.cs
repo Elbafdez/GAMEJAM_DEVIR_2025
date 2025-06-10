@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f; // Asegurarse de que el tiempo no esté pausado
         StartCoroutine(SpawnearGrupos());
         StartCoroutine(AumentarProbabilidadBorrachos());
         gameOverText.SetActive(false);
@@ -147,8 +148,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         gameOverText.SetActive(true);
         Time.timeScale = 0f;
-        textoPersonas.text = "Participantes: " + PartyMove.Instance.personas;    // Mostrar el número de personas
+        textoPersonas.text = "Fiesteros: " + PartyMove.Instance.personas;    // Mostrar el número de personas
         float tiempoTranscurrido = Time.timeSinceLevelLoad / 60f; // Convertir a minutos
-        textoTiempo.text = "Tiempo de faena: " + string.Format("{0:00}:{1:00}", (int)tiempoTranscurrido, (int)((tiempoTranscurrido - (int)tiempoTranscurrido) * 60));
+        textoTiempo.text = "Tiempo de desmadre: " + string.Format("{0:00}:{1:00}", (int)tiempoTranscurrido, (int)((tiempoTranscurrido - (int)tiempoTranscurrido) * 60));
     }
 }
