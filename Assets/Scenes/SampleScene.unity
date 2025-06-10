@@ -2075,7 +2075,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -2105,6 +2105,7 @@ MonoBehaviour:
   - {r: 0.6414704, g: 0.8207547, b: 0.4761926, a: 0}
   - {r: 0.6367924, g: 0.7935726, b: 1, a: 0}
   intervaloCambioColor: 0.5
+  "tama\xF1oParaColorCamara": 2
 --- !u!58 &248426251
 CircleCollider2D:
   m_ObjectHideFlags: 0
