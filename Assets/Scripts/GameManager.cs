@@ -38,6 +38,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnearGrupos());
         gameOverText.SetActive(false);
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
     
 
     IEnumerator SpawnearGrupos()
