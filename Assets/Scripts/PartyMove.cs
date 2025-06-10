@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PartyMove : MonoBehaviour
 {
@@ -10,6 +11,13 @@ public class PartyMove : MonoBehaviour
     public float escalaMaxima;
     private float limiteMapa = 30f;
     public int personas = 0;
+
+    public Camera mainCamera;
+    public Color[] coloresFondo;
+    public float intervaloCambioColor;
+    private float tamañoParaColorCamara = 2f;
+
+    private bool cambioColorActivo = false;
 
     void Awake()
     {
@@ -24,6 +32,13 @@ public class PartyMove : MonoBehaviour
         if (transform.localScale.x <= escalaMinima) //Es la misma para x e y
         {
             GameManager.Instance.GameOver();
+        }
+
+        // Iniciar cambio de fondo si escala >= 2.5 y aún no está activo
+        if (!cambioColorActivo && transform.localScale.x >= tamañoParaColorCamara)
+        {
+            cambioColorActivo = true;
+            StartCoroutine(CambiarColorFondo());
         }
 
     }
@@ -44,6 +59,19 @@ public class PartyMove : MonoBehaviour
         float clampedX = Mathf.Clamp(transform.position.x, -limiteMapa, limiteMapa);
         float clampedY = Mathf.Clamp(transform.position.y, -limiteMapa, limiteMapa);
         transform.position = new Vector3(clampedX, clampedY, transform.position.z);
+    }
+
+    IEnumerator CambiarColorFondo()
+    {
+        int index = 0;
+        while (true)
+        {
+            if (coloresFondo.Length == 0) yield break;
+    
+            mainCamera.backgroundColor = coloresFondo[index];
+            index = (index + 1) % coloresFondo.Length;
+            yield return new WaitForSeconds(intervaloCambioColor);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
